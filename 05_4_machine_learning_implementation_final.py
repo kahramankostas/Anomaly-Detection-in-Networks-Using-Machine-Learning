@@ -22,6 +22,15 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier
+
+from sklearn.metrics import f1_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import precision_score
+
+
+
+
+            
 import matplotlib.pyplot as plt
 from sklearn import preprocessing
 import numpy as np
@@ -111,25 +120,6 @@ algorithms_features={"Naive Bayes":['Bwd Packet Length Std', 'Total Length of Fw
 seconds=time.time()#time stamp for all processing time
 
 
-
-
-
-
-
-
-
-def f1_score(raw_f1): #this function, separates the "classification report" sent to itself and makes the precision, f-measure, and recall values into float values.
-    raw_f1=raw_f1[raw_f1.index("total"):-2]
-    raw_f1=raw_f1.split("      ")
-    precision=(raw_f1[1])
-    recall=(raw_f1[2])
-    f1_score=(raw_f1[3])
-    precision=precision[0:6]
-    recall=recall[0:4]
-    f1_score=f1_score[0:4]   
-    return precision,recall,f1_score
-
-
 with open(result, "w", newline="",encoding="utf-8") as f:#a CSV file is created to save the results obtained.
     wrt = csv.writer(f)
     wrt.writerow(["File","ML algorithm","accuracy","Precision", "Recall" , "F1-score","Time"])
@@ -172,7 +162,12 @@ for j in csv_files: #this loop runs on the list containing the filenames.Operati
             predict =clf.predict(X_test)
         
             #makes "classification report" and assigns the precision, f-measure, and recall values.s.    
-            pr,rc,f_1=f1_score(metrics.classification_report(y_test, predict))
+
+            f_1=f1_score(y_test, predict, average='macro')
+            pr=precision_score(y_test, predict, average='macro')
+            rc=recall_score(y_test, predict, average='macro')
+
+            
             precision.append(float(pr))
             recall.append(float(rc))
             f1.append(float(f_1))

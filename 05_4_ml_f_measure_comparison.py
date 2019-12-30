@@ -25,6 +25,15 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier
+
+from sklearn.metrics import f1_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import precision_score
+
+
+
+
+            
 import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
@@ -64,12 +73,6 @@ my_list=[]
 
 least=0
 
-def f1_score(raw_f1): #this function, separates the "classification report" sent to itself and makes  f-measure values into float values.
-    raw_f1=raw_f1[raw_f1.index("total"):-2]
-    raw_f1=raw_f1.split("      ")
-    f1_score=(raw_f1[3])
-    f1_score=f1_score[0:4]   
-    return float(f1_score)
 
 
 ml_list={#The machine learning algorithms to be used are defined in a dictionary (ml_list).
@@ -83,7 +86,7 @@ ml_list={#The machine learning algorithms to be used are defined in a dictionary
 
 
 features.pop()#the Label tag is removed, no need any more
-print ('%-17s %-17s %-17s  %-25s %-15s ' % ("ML algorithm","Feature Name","F1-score","Accuracy", "Feature List"))# print output header
+print ('%-17s %-30s %-10s  %-10s %-15s ' % ("ML algorithm","Feature Name","F1-score","Accuracy", "Feature List"))# print output header
 for j in ml_list: # run for every machine learning.  
     my_list=[]
     for i in features: ## run for every  feature  
@@ -98,7 +101,7 @@ for j in ml_list: # run for every machine learning.
         clf.fit(X_train, y_train)
         predict =clf.predict(X_test)
         f1=clf.score(X_test, y_test)
-        result=f1_score(metrics.classification_report(y_test, predict))
+        result=f1_score(y_test, predict, average='macro')
         accuracy=round(clf.score(X_test, y_test),2)
         temp="["
        
@@ -108,11 +111,11 @@ for j in ml_list: # run for every machine learning.
        
         if result>=least:# If the F-criterion is equal to or greater than the highest value previously accessed, keep the new feature. 
             least=result
-            print ('%-17s %-30s %-17s %-15s %-25s %-15s' % (j,i,result,accuracy ,temp, "------> New feature found!!!"))
+            print ('%-17s %-30s %-10s  %-10s %-15s %-15s ' % (j,i,result,accuracy ,temp, "------> New feature found!!!"))
 
         else:#If not, remove it from the list
             my_list.remove(my_list[len(my_list)-1])
-            print ('%-17s %-30s %-17s %-25s %-15s  ' % (j,i,result,accuracy ,temp))
+            print ('%-17s %-30s %-10s  %-10s %-15s ' % (j,i,result,accuracy ,temp))
     print("F1=" ,least,j," The most efficient feature list =",my_list,"\n\n") #print maximum F1 and the most efficient feature list
 
 

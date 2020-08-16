@@ -158,6 +158,6 @@ If you use the source code please cite the following paper:
 
 
 
-##  [you can reach the thesis this link](https://github.com/bozbil/Anomaly-Detection-in-Networks-Using-Machine-Learning/blob/master/Anomaly_Detection_in_Networks_Using_Machine_Learning.pdf)
+##  [you can reach the thesis via this link](https://github.com/bozbil/Anomaly-Detection-in-Networks-Using-Machine-Learning/blob/master/Anomaly_Detection_in_Networks_Using_Machine_Learning.pdf)
 
 

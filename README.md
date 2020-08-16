@@ -140,6 +140,24 @@ This file applies 7 machine learning algorithms to "all_data.csv" file 10 times 
 
 The last run time of this file was recorded as 18561 seconds.
 
+
+## Citations
+If you use the source code please cite the following paper:
+
+```
+@MastersThesis{kostas2018,
+    author = {Kostas,Kahraman},
+    title     =     {{Anomaly Detection in Networks Using Machine Learning}},
+    institution = {Computer Science and Electronic Engineering - CSEE},
+    school     =     {University of Essex},
+    address     =     {Colchester, UK},
+    year     =     {2018}
+    }
+```
+
+
+
+
 ##  [you can reach the thesis this link](https://github.com/bozbil/Anomaly-Detection-in-Networks-Using-Machine-Learning/blob/master/Anomaly_Detection_in_Networks_Using_Machine_Learning.pdf)
 
 

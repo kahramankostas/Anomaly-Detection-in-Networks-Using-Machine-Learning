@@ -147,11 +147,11 @@ If you use the source code please cite the following paper:
 ```
 @MastersThesis{kostas2018,
     author = {Kostas,Kahraman},
-    title     =     {{Anomaly Detection in Networks Using Machine Learning}},
+    title = {{Anomaly Detection in Networks Using Machine Learning}},
     institution = {Computer Science and Electronic Engineering - CSEE},
-    school     =     {University of Essex},
-    address     =     {Colchester, UK},
-    year     =     {2018}
+    school = {University of Essex},
+    address= {Colchester, UK},
+    year={2018}
     }
 ```
 

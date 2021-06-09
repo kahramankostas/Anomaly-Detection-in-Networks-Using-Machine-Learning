@@ -32,7 +32,7 @@ Because the output of almost every program is the prerequisite for the operation
 
 
 ## 1 - Pre-processing
-This step consists of a single file ([preprocessing.ipynb](https://github.com/bozbil/Anomaly-Detection-in-Networks-Using-Machine-Learning/blob/master/01_preprocessing.ipynb)). For this program to work, the dataset files must be in the "CSVs" folder in the same location as the program. The dataset files can be access  [ here ](https://drive.google.com/open?id=1-uwoKddOHgRxS8vth-nGBqBtz-qzRSAX).  (The reason that these files are given an external link is that the maximum limit of the file in the cseegit system is 10 MB)
+This step consists of a single file ([preprocessing.ipynb](https://github.com/bozbil/Anomaly-Detection-in-Networks-Using-Machine-Learning/blob/master/01_preprocessing.ipynb)). For this program to work, the dataset ([CIC-IDS2017](https://www.unb.ca/cic/datasets/ids-2017.html)) files must be in the "CSVs" folder in the same location as the program. The dataset files can be access  [ here ](https://drive.google.com/open?id=1-uwoKddOHgRxS8vth-nGBqBtz-qzRSAX).  (The reason that these files are given an external link is that the maximum limit of the file in the cseegit system is 10 MB)
 
 As a result of executing this file, a file named "all_data.csv" is created. This file is a prerequisite for the other steps to work.
 

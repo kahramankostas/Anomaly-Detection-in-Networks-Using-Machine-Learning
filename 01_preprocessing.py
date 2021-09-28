@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[4]:
+
+
 ##  CICIDS2017 csv files are required for the operation of the program.
 ##  These files must be located under the "CSVs" folder in the same directory as the program.
 
@@ -19,7 +25,7 @@ import os
 from sklearn import preprocessing
 import time
 seconds = time.time()
-
+get_ipython().run_line_magic('matplotlib', 'inline')
 
 print("This process may take 5 to 10 minutes, depending on the performance of your computer.\n\n\n")
 number="0123456789"
@@ -60,6 +66,11 @@ for i in range(len(csv_files)):
                 if  line[0] in number:# this line eliminates the headers of CSV files and incomplete streams .
                     if " – " in str(line): ##  if there is "–" character ("–", Unicode code:8211) in the flow ,  it will be chanced with "-" character ( Unicode code:45).
                         line=(str(line).replace(" – "," - "))
+                    line=(str(line).replace("inf","0"))
+                    line=(str(line).replace("Infinity","0"))
+                    
+                    line=(str(line).replace("NaN","0"))
+                     
                     ths.write(str(line))
                 else:
                     continue                       
@@ -120,3 +131,10 @@ for i in range(len(csv_files)):
 print("mission accomplished!")
 print("Total operation time: = ",time.time()- seconds ,"seconds")
     
+
+
+# In[ ]:
+
+
+
+
